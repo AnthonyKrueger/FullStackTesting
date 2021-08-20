@@ -1,5 +1,6 @@
 import {useEffect, useState} from 'react';
 import axios from 'axios';
+import UserData from "../components/UserData";
 
 export default function UserPage() {
 
@@ -19,10 +20,8 @@ export default function UserPage() {
     }, [])
     if(userData) {
         return (
-            <div>
-                <h2>UserData: </h2>
-                <h2>{userData.username}</h2>
-                <h3>{userData._id}</h3>
+            <div className="mt-10">
+                <UserData userData={userData}/>
             </div>
         )
     }

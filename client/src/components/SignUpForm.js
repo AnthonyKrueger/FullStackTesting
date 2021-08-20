@@ -18,7 +18,22 @@ export default function SignUpForm({loginFunction}) {
             email: user.email
         })
         .catch(function (error) {
-            console.log(error)
+            if(error.response) {
+                if(error.response.data.code === 11000) {
+                    alert("Email or Username Not Available")
+                }
+                else {
+                    alert(error.response.data.message)
+                }
+                console.log(error.response.data)
+            }
+            else if(error.request) {
+                console.log(error.request);
+                alert(error.request)
+            }
+            else {
+                console.log("error:", error.message)
+            }
         })
         if(response) {
             console.log("Sign-Up Successful")
@@ -30,12 +45,15 @@ export default function SignUpForm({loginFunction}) {
     }
 
     return (
-        <div>
-            <form className="bg-white h-full center text-center space-y-2 shadow-md rounded px-8 pt-6 pb-4 mb-2" onSubmit={(event) => handleSignUp(event)}>
-                <InputField type="text" placeholder="Username" value={user.username} onChange={(event) => handleChange("username", event.target.value)} />
+        <div className="h-full">
+            <form className="bg-orange-dark h-full content-center flex flex-wrap space-y-2 shadow-md rounded px-8 pt-6 pb-4 mb-2" onSubmit={(event) => handleSignUp(event)}>
+                <h2 className="text-xl pb-5 text-white font-semibold">Sign Up</h2>
                 <InputField type="text" placeholder="Email" value={user.email} onChange={(event) => handleChange("email", event.target.value)} />
-                <InputField type="password" placeholder="Password" value={user.password} onChange={(event) => handleChange("password", event.target.value)} />
-                <div className="pt-5">
+                <div className="grid grid-cols-2 w-full gap-2">
+                    <InputField type="text" placeholder="Username" value={user.username} onChange={(event) => handleChange("username", event.target.value)} />
+                    <InputField type="password" placeholder="Password" value={user.password} onChange={(event) => handleChange("password", event.target.value)} />
+                </div>
+                <div className="pt-5 mx-auto">
                     <Button type="submit" text="Sign-Up"/>
                 </div>
             </form>
