@@ -7,11 +7,12 @@ var MongoDBStore = require('connect-mongodb-session')(session);
 
 const app = express();
 const PORT = process.env.PORT || 3001
+const uri = process.env.MONGODB_URI || "mongodb://localhost/mmoTesting"
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/mmoTesting", {useNewUrlParser: true});
+mongoose.connect(uri, {useNewUrlParser: true});
 
 const store = new MongoDBStore({
-    uri: 'mongodb://localhost:27017/mmoTesting',
+    uri: uri,
     collection: 'sessions'
 })
 
