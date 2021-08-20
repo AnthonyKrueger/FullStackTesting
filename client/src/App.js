@@ -45,7 +45,7 @@ function App() {
             </div>
           </div>
         </nav>
-
+        <div className="container mx-auto">
         <Switch>
           <Route exact path="/">
             <Home loginFunction={setLoggedIn} />
@@ -60,6 +60,7 @@ function App() {
             {!loggedIn ? <Redirect to="/" /> : <Logout logoutFunction={setLoggedIn} /> }
           </Route>
         </Switch>
+        </div>
       </div>
     </Router>
   )

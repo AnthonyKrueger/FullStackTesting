@@ -1,6 +1,7 @@
 import {useState} from 'react'
 import axios from 'axios'
-import {Redirect} from 'react-router-dom'
+import InputField from './InputField'
+import Button from './Button'
 
 export default function SignUpForm({loginFunction}) {
     const [user, setField] = useState({"username": "", "password": "", "email": ""})
@@ -30,11 +31,13 @@ export default function SignUpForm({loginFunction}) {
 
     return (
         <div>
-            <form onSubmit={(event) => handleSignUp(event)}>
-                <input type="text" placeholder="Username" value={user.username} onChange={(event) => handleChange("username", event.target.value)}></input>
-                <input type="text" placeholder="Password" value={user.password} onChange={(event) => handleChange("password", event.target.value)}></input>
-                <input type="text" placeholder="Email" value={user.email} onChange={(event) => handleChange("email", event.target.value)}></input>
-                <button type="submit">Sign Up</button>
+            <form className="bg-white h-full center text-center space-y-2 shadow-md rounded px-8 pt-6 pb-4 mb-2" onSubmit={(event) => handleSignUp(event)}>
+                <InputField type="text" placeholder="Username" value={user.username} onChange={(event) => handleChange("username", event.target.value)} />
+                <InputField type="text" placeholder="Email" value={user.email} onChange={(event) => handleChange("email", event.target.value)} />
+                <InputField type="password" placeholder="Password" value={user.password} onChange={(event) => handleChange("password", event.target.value)} />
+                <div className="pt-5">
+                    <Button type="submit" text="Sign-Up"/>
+                </div>
             </form>
         </div>
     )

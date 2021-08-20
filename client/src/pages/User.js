@@ -29,7 +29,7 @@ export default function UserPage() {
     else {
         return (
             <div>
-                <h2>No Data</h2>
+                <h2>Loading...</h2>
             </div>
         )
     }
