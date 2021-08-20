@@ -1,7 +1,6 @@
 import { useState } from "react";
-import LoginForm from "../components/LoginForm"
 
-export default function Home({loginFunction}) {
+export default function Home() {
 
     const [data, setData] = useState(null)
 
@@ -16,7 +15,6 @@ export default function Home({loginFunction}) {
         <div>
             <p>{!data ? "No User Loaded" : data}</p>
             <button onClick={handleClick}>Fetch Data</button>
-            <LoginForm loginFunction={loginFunction}/>
         </div>
     );
 }

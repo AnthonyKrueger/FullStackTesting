@@ -10,6 +10,7 @@ import {
 
 import Home from "./pages/Home"
 import User from "./pages/User"
+import Login from "./pages/Login"
 import Logout from "./pages/Logout"
 
 function App() {
@@ -51,6 +52,9 @@ function App() {
           </Route>
           <Route path="/user">
             {!loggedIn ? <Redirect to="/" /> : <User />}
+          </Route>
+          <Route path="/login">
+            {loggedIn ? <Redirect to="/" /> : <Login loginFunction={setLoggedIn}/>}
           </Route>
           <Route path="/logout">
             {!loggedIn ? <Redirect to="/" /> : <Logout logoutFunction={setLoggedIn} /> }
