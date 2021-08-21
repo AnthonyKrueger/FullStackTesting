@@ -8,6 +8,7 @@ import {
   Redirect
 } from "react-router-dom";
 
+
 import Home from "./pages/Home"
 import User from "./pages/User"
 import Login from "./pages/Login"
@@ -31,7 +32,7 @@ function App() {
       <div>
         <nav className="flex items-center justify-between flex-wrap bg-red-deep p-6">
         <div className="flex items-center flex-shrink-0 text-white mr-6">
-          <span className="font-semibold text-xl tracking-tight">FullStackApp</span>
+          <span className="font-semibold text-xl tracking-tight">MMO Test</span>
         </div>
           <div className="w-full flex lg:items-center lg:w-auto lg:space-x-10">
             <div className="text-md lg:flex-grow">

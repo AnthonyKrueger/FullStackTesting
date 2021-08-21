@@ -17,6 +17,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "bcrypt": "^5.0.1",
+    "cloudinary": "^1.26.3",
     "connect-mongodb-session": "^3.0.0",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
@@ -25,5 +26,7 @@
     "nodemon": "^2.0.12",
     "react-router-dom": "^5.2.0"
   },
-  "optionalDependencies": { "fsevents": "2.3.2" }
+  "optionalDependencies": {
+    "fsevents": "2.3.2"
+  }
 }

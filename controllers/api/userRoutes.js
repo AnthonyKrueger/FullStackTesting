@@ -48,6 +48,8 @@ router.post('/login', async (req, res) => {
 
 router.get('/page/:_id', async (req, res) => {
     const user = await User.findOne({_id: req.params._id})
+    .select({"username": 1, "_id": 1, "email": 1})
+    .populate('character')
     console.log(user)
     res.json(user)
 })
@@ -72,7 +74,9 @@ router.get("/session", (req, res) => {
 })
 
 router.get("/me", async (req, res) => {
-    const user = await User.findOne({_id: req.session.userId}).select({"username": 1, "_id": 1, "email": 1})
+    const user = await User.findOne({_id: req.session.userId})
+    .select({"username": 1, "_id": 1, "email": 1})
+    .populate('character')
     if(!user) {
         console.log("No User")
     }

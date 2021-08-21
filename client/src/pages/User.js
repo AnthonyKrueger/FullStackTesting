@@ -1,6 +1,7 @@
 import {useEffect, useState} from 'react';
 import axios from 'axios';
 import UserData from "../components/UserData";
+import CharacterData from "../components/CharacterData";
 
 export default function UserPage() {
 
@@ -18,9 +19,11 @@ export default function UserPage() {
         }
         fetchData();
     }, [])
+
     if(userData) {
         return (
             <div className="mt-10">
+                {userData.character ? <CharacterData user={userData}/> : null}
                 <UserData userData={userData}/>
             </div>
         )

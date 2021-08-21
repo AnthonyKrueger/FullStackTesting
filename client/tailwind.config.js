@@ -13,6 +13,12 @@ module.exports = {
           light: "#ce4257",
           dark: "#720026",
           deep: "#4f000b"
+        },
+        teal: {
+          DEFAULT: "#0a9396",
+          light: "#94d2bd",
+          dark: "#005f73",
+          deep: "#001219"
         }
       }
     },
